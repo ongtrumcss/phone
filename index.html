@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Điện Thoại</title>
+    <link href="./src/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1517976455416-1c62c43ca8d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 0;
+            animation: zoom 15s linear infinite;
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            background-color: #ff9f1c;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e67700;
+        }
+
+        .featured-products {
+            padding: 2rem 0;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        .product-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        .flashing-text {
+            animation: flash 2s linear infinite;
+        }
+
+        @keyframes flash {
+            0% { color: #f44336; }
+            20% { color: #e91e63; }
+            40% { color: #9c27b0; }
+            60% { color: #3f51b5; }
+            80% { color: #2196f3; }
+            100% { color: #f44336; }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .why-choose-us {
+            padding: 3rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .why-choose-us-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            background-color: white;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .why-choose-us-item:hover {
+            transform: translateY(-0.25rem);
+        }
+
+        .testimonials {
+            padding: 3rem 0;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+        }
+
+        .subscription-form {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: #e9ecef;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            right: 0; /* Align to the right */
+            border-radius: 0.375rem; /* Rounded corners */
+            overflow: hidden; /* Hide overflow for rounded corners */
+        }
+
+        .dropdown-content a {
+            color: #374151; /* Text color */
+            padding: 0.75rem 1rem; /* Padding */
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease-in-out; /* Smooth transition */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f3f4f6; /* Hover background color */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        #search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 2;
+        }
+
+        #search-suggestions a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        #search-suggestions a:hover {
+            background-color: #f0f0f0;
+        }
+
+        #search-input {
+          display: none; /* Hide by default */
+        }
+
+        .search-icon {
+          cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+          #search-input {
+            display: inline-block; /* Show on larger screens */
+          }
+          .search-icon {
+            display: none; /* Hide icon on larger screens */
+          }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold flashing-text">Cửa Hàng Điện Thoại</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-200">Trang Chủ</a></li>
+                    <li><a href="products.html" class="hover:text-gray-200">Sản Phẩm</a></li>
+                    <li><a href="about.html" class="hover:text-gray-200">Giới Thiệu</a></li>
+                    <li><a href="contact.html" class="hover:text-gray-200">Liên Hệ</a></li>
+                    <li><a href="admin.html" class="hover:text-gray-200">Quản Trị</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto">
+        <section class="hero fade-in">
+            <div class="container mx-auto text-center hero-content">
+                <h2 class="text-4xl font-bold mb-4">Chào mừng đến với Cửa Hàng Điện Thoại</h2>
+                <p class="text-lg mb-8">Tìm những chiếc điện thoại và phụ kiện tốt nhất với giá cả phải chăng.</p>
+                <a href="products.html" class="cta-button">Mua Ngay</a>
+            </div>
+        </section>
+
+        <section class="featured-products fade-in">
+            <div class="container mx-auto">
+                <h3 class="text-3xl font-semibold mb-4 text-gray-800 text-center">Sản Phẩm Nổi Bật</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product 1 -->
+                    <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08GtKCt0jKIJ-lxEwJ4K-99c4_K-jVf8FSA&usqp=CAU" alt="Điện Thoại 1" class="w-full h-32 object-cover rounded-md mb-2">
+                        <h4 class="text-lg font-semibold text-gray-700">iPhone 15 Pro Max</h4>
+                        <p class="text-gray-600">34.990.000 VNĐ</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center">
+                                <label for="quantity1" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                                <input type="number" id="quantity1" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-4">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6a5E-J-dl-x_Q4E-L-LhX_E4-Z_9vYd1z0g&usqp=CAU" alt="Điện Thoại 2" class="w-full h-32 object-cover rounded-md mb-2">
+                        <h4 class="text-lg font-semibold text-gray-700">Samsung Galaxy S23 Ultra</h4>
+                        <p class="text-gray-600">27.990.000 VNĐ</p>
+                         <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center">
+                                <label for="quantity2" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                                <input type="number" id="quantity2" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-4">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy1v3-CdDlz2TrDTjJtzKjK-z1N9-bO83Y4g&usqp=CAU" alt="Điện Thoại 3" class="w-full h-32 object-cover rounded-md mb-2">
+                        <h4 class="text-lg font-semibold text-gray-700">Samsung Galaxy Z Fold 5</h4>
+                        <p class="text-gray-600">40.990.000 VNĐ</p>
+                         <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center">
+                                <label for="quantity3" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                                <input type="number" id="quantity3" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-4">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Mua Ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us fade-in">
+            <div class="container mx-auto">
+                <h3 class="text-3xl font-semibold mb-4 text-gray-800 text-center">Tại Sao Chọn Chúng Tôi?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="why-choose-us-item">
+                        <i class="fas fa-check-circle text-4xl text-green-500 mb-2"></i>
+                        <h4 class="text-xl font-semibold text-gray-700">Sản Phẩm Chất Lượng</h4>
+                        <p class="text-gray-600">Chúng tôi chỉ cung cấp sản phẩm chính hãng, đảm bảo chất lượng.</p>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <i class="fas fa-star text-4xl text-yellow-500 mb-2"></i>
+                        <h4 class="text-xl font-semibold text-gray-700">Dịch Vụ Tận Tâm</h4>
+                        <p class="text-gray-600">Đội ngũ nhân viên nhiệt tình, sẵn sàng hỗ trợ bạn mọi lúc.</p>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <i class="fas fa-shipping-fast text-4xl text-blue-500 mb-2"></i>
+                        <h4 class="text-xl font-semibold text-gray-700">Giao Hàng Nhanh Chóng</h4>
+                        <p class="text-gray-600">Chúng tôi cam kết giao hàng nhanh chóng và đúng hẹn.</p>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <i class="fas fa-percent text-4xl text-red-500 mb-2"></i>
+                        <h4 class="text-xl font-semibold text-gray-700">Ưu Đãi Hấp Dẫn</h4>
+                        <p class="text-gray-600">Nhiều chương trình khuyến mãi và ưu đãi đặc biệt dành cho khách hàng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials fade-in">
+            <div class="container mx-auto">
+                <h3 class="text-3xl font-semibold mb-4 text-gray-800 text-center">Khách Hàng Nói Về Chúng Tôi</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="testimonial-card">
+                        <p class="text-gray-700 italic mb-4">"Tôi rất hài lòng với sản phẩm và dịch vụ của cửa hàng. Nhân viên tư vấn nhiệt tình, sản phẩm chất lượng, giao hàng nhanh chóng."</p>
+                        <p class="text-gray-600 font-semibold">- Nguyễn Văn A</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="text-gray-700 italic mb-4">"Cửa hàng có nhiều mẫu mã điện thoại đa dạng, giá cả hợp lý. Tôi đã mua được chiếc điện thoại ưng ý tại đây."</p>
+                        <p class="text-gray-600 font-semibold">- Trần Thị B</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscription-form fade-in">
+            <div class="container mx-auto">
+                <h3 class="text-3xl font-semibold mb-4 text-gray-800 text-center">Đăng Ký Nhận Thông Tin</h3>
+                <p class="text-gray-600 mb-4 text-center">Đừng bỏ lỡ những ưu đãi và thông tin mới nhất từ chúng tôi!</p>
+                <form class="flex items-center justify-center">
+                    <input type="email" placeholder="Nhập email của bạn" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-4">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">Đăng Ký</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center p-4 mt-8">
+        <p>&copy; 2024 Cửa Hàng Điện Thoại. All rights reserved.</p>
+        <p>Bản quyền thuộc về Chiến Lê</p>
+    </footer>
+
+    <script>
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        fadeInElements.forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

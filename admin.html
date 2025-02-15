@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị - Cửa Hàng Điện Thoại</title>
+    <link href="./src/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        .flashing-text {
+            animation: flash 2s linear infinite;
+        }
+
+        @keyframes flash {
+            0% { color: #f44336; }
+            20% { color: #e91e63; }
+            40% { color: #9c27b0; }
+            60% { color: #3f51b5; }
+            80% { color: #2196f3; }
+            100% { color: #f44336; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div id="login-container" class="container mx-auto mt-20 p-8 bg-white rounded-lg shadow-md max-w-md">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800">Đăng Nhập Quản Trị</h2>
+        <form id="login-form">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Tên đăng nhập:</label>
+                <input type="text" id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tên đăng nhập">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Mật khẩu:</label>
+                <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Mật khẩu">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Đăng Nhập
+            </button>
+            <a href="index.html" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-4">
+                Quay lại trang chủ
+            </a>
+        </form>
+    </div>
+
+    <div id="admin-content" class="container mx-auto mt-8 p-4 hidden">
+        <section class="admin">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-3xl font-semibold text-gray-800">Bảng Điều Khiển Quản Trị</h2>
+                <a href="index.html" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Quay lại trang chủ
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Quản Lý Sản Phẩm</h3>
+                    <ul>
+                        <li><a href="add_product.html" class="text-blue-500 hover:text-blue-700 transition duration-300 block py-2">Thêm Sản Phẩm</a></li>
+                        <li><a href="edit_product.html" class="text-blue-500 hover:text-blue-700 transition duration-300 block py-2">Sửa Sản Phẩm</a></li>
+                        <li><a href="delete_product.html" class="text-blue-500 hover:text-blue-700 transition duration-300 block py-2">Xóa Sản Phẩm</a></li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Quản Lý Đơn Hàng</h3>
+                    <ul>
+                        <li><a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300 block py-2">Xem Đơn Hàng</a></li>
+                        <li><a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300 block py-2">Xử Lý Đơn Hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-800">Danh Sách Sản Phẩm</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white shadow-md rounded-lg">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="p-3 text-left text-gray-700">ID</th>
+                                <th class="p-3 text-left text-gray-700">Tên Sản Phẩm</th>
+                                <th class="p-3 text-left text-gray-700">Giá</th>
+                                <th class="p-3 text-left text-gray-700">Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-100">
+                                <td class="p-3">1</td>
+                                <td class="p-3">Điện Thoại A</td>
+                                <td class="p-3">299.000 VNĐ</td>
+                                <td class="p-3">
+                                    <a href="#" class="text-green-500 hover:text-green-700 mr-2">Sửa</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-100">
+                                <td class="p-3">2</td>
+                                <td class="p-3">Điện Thoại B</td>
+                                <td class="p-3">399.000 VNĐ</td>
+                                <td class="p-3">
+                                    <a href="#" class="text-green-500 hover:text-green-700 mr-2">Sửa</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-100">
+                                <td class="p-3">3</td>
+                                <td class="p-3">Điện Thoại C</td>
+                                <td class="p-3">499.000 VNĐ</td>
+                                <td class="p-3">
+                                    <a href="#" class="text-green-500 hover:text-green-700 mr-2">Sửa</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-gray-200 text-center p-4 mt-8">
+        <p>&copy; 2024 Cửa Hàng Điện Thoại. All rights reserved.</p>
+    </footer>
+    <div class="bg-gray-200 text-center p-4">
+      <p>Bản quyền thuộc về Chiến Lê</p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const loginContainer = document.getElementById('login-container');
+        const adminContent = document.getElementById('admin-content');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '0000') {
+                loginContainer.classList.add('hidden');
+                adminContent.classList.remove('hidden');
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng.');
+            }
+        });
+    </script>
+</body>
+</html>

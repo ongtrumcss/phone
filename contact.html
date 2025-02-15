@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Cửa Hàng Điện Thoại</title>
+    <link href="./src/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        .flashing-text {
+            animation: flash 2s linear infinite;
+        }
+
+        @keyframes flash {
+            0% { color: #f44336; }
+            20% { color: #e91e63; }
+            40% { color: #9c27b0; }
+            60% { color: #3f51b5; }
+            80% { color: #2196f3; }
+            100% { color: #f44336; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold flashing-text">Cửa Hàng Điện Thoại</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-200">Trang Chủ</a></li>
+                    <li><a href="products.html" class="hover:text-gray-200">Sản Phẩm</a></li>
+                    <li><a href="about.html" class="hover:text-gray-200">Giới Thiệu</a></li>
+                    <li><a href="contact.html" class="hover:text-gray-200">Liên Hệ</a></li>
+                     <li><a href="admin.html" class="hover:text-gray-200">Quản Trị</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section class="contact">
+            <h2 class="text-3xl font-semibold mb-4 text-gray-800">Liên Hệ Với Chúng Tôi</h2>
+            <p class="text-gray-600 mb-6">
+                Có câu hỏi hoặc cần hỗ trợ? Liên hệ với chúng tôi bằng thông tin dưới đây.
+            </p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="mb-4">
+                    <p class="font-semibold text-gray-700">Địa chỉ:</p>
+                    <p class="text-gray-600">123 Đường Chính, Thành Phố, Quốc Gia</p>
+                </div>
+                <div class="mb-4">
+                    <p class="font-semibold text-gray-700">Email:</p>
+                    <p class="text-blue-500 hover:text-blue-700">info@cuahangdienthoai.com</p>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-700">Điện thoại:</p>
+                    <p class="text-gray-600">(123) 456-7890</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center p-4 mt-8">
+        <p>&copy; 2024 Cửa Hàng Điện Thoại. All rights reserved.</p>
+    </footer>
+    <div class="bg-gray-200 text-center p-4">
+      <p>Bản quyền thuộc về Chiến Lê</p>
+    </div>
+    <script src="./src/script.js"></script>
+</body>
+</html>

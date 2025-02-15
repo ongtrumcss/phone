@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Product - Phone Store Admin</title>
+    <link href="./src/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        .flashing-text {
+            animation: flash 2s linear infinite;
+        }
+
+        @keyframes flash {
+            0% { color: #f44336; }
+            20% { color: #e91e63; }
+            40% { color: #9c27b0; }
+            60% { color: #3f51b5; }
+            80% { color: #2196f3; }
+            100% { color: #f44336; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-500 text-white p-4">
+        <h1 class="text-2xl font-bold flashing-text">Phone Store - Admin</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-gray-200">Home</a></li>
+                <li><a href="products.html" class="hover:text-gray-200">Products</a></li>
+                <li><a href="about.html" class="hover:text-gray-200">About</a></li>
+                <li><a href="contact.html" class="hover:text-gray-200">Contact</a></li>
+                <li><a href="admin.html" class="hover:text-gray-200">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section class="delete-product">
+            <h2 class="text-3xl font-semibold mb-4 text-gray-800">Delete Product</h2>
+            <form class="bg-white rounded-lg shadow-md p-6">
+                <div class="mb-4">
+                    <label for="productId" class="block text-gray-700 text-sm font-bold mb-2">Product ID:</label>
+                    <input type="text" id="productId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter Product ID to Delete">
+                </div>
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300" type="submit">
+                    Delete Product
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center p-4 mt-8">
+        <p>&copy; 2024 Phone Store. All rights reserved.</p>
+        <p>Bản quyền thuộc về Chiến Lê</p>
+    </footer>
+    <script src="./src/script.js"></script>
+</body>
+</html>

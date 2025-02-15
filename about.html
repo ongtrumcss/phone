@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu - Cửa Hàng Điện Thoại</title>
+    <link href="./src/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        .flashing-text {
+            animation: flash 2s linear infinite;
+        }
+
+        @keyframes flash {
+            0% { color: #f44336; }
+            20% { color: #e91e63; }
+            40% { color: #9c27b0; }
+            60% { color: #3f51b5; }
+            80% { color: #2196f3; }
+            100% { color: #f44336; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold flashing-text">Cửa Hàng Điện Thoại</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-200">Trang Chủ</a></li>
+                    <li><a href="products.html" class="hover:text-gray-200">Sản Phẩm</a></li>
+                    <li><a href="about.html" class="hover:text-gray-200">Giới Thiệu</a></li>
+                    <li><a href="contact.html" class="hover:text-gray-200">Liên Hệ</a></li>
+                     <li><a href="admin.html" class="hover:text-gray-200">Quản Trị</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section class="about">
+            <h2 class="text-3xl font-semibold mb-4 text-gray-800 fade-in">Về Chúng Tôi</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <p class="text-gray-700 mb-4 fade-in">
+                    Chào mừng bạn đến với Cửa Hàng Điện Thoại, nơi công nghệ gặp gỡ đam mê và dịch vụ tận tâm. Chúng tôi tự hào là một trong những nhà cung cấp điện thoại và phụ kiện hàng đầu, mang đến cho bạn những sản phẩm chất lượng với giá cả cạnh tranh nhất trên thị trường.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-2 text-gray-700 fade-in">Sứ Mệnh Của Chúng Tôi</h3>
+                <p class="text-gray-600 mb-4 fade-in">
+                    Sứ mệnh của chúng tôi không chỉ là bán điện thoại, mà còn là cung cấp giải pháp công nghệ toàn diện, giúp bạn kết nối với thế giới một cách dễ dàng và hiệu quả. Chúng tôi cam kết mang đến trải nghiệm mua sắm tuyệt vời nhất, từ khâu tư vấn, lựa chọn sản phẩm đến dịch vụ hậu mãi chu đáo.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-2 text-gray-700 fade-in">Lịch Sử Phát Triển</h3>
+                <p class="text-gray-600 mb-4 fade-in">
+                    Với hơn 10 năm kinh nghiệm trong ngành, Cửa Hàng Điện Thoại đã không ngừng phát triển và khẳng định vị thế của mình. Từ một cửa hàng nhỏ, chúng tôi đã mở rộng quy mô, xây dựng hệ thống chi nhánh rộng khắp và phát triển kênh bán hàng trực tuyến hiện đại.
+                </p>
+                <p class="text-gray-600 mb-4 fade-in">
+                    Chúng tôi luôn cập nhật những xu hướng công nghệ mới nhất, đồng thời chú trọng đào tạo đội ngũ nhân viên chuyên nghiệp, nhiệt tình, sẵn sàng đáp ứng mọi nhu cầu của khách hàng.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-2 text-gray-700 fade-in">Đội Ngũ Của Chúng Tôi</h3>
+                <p class="text-gray-600 mb-4 fade-in">
+                    Đội ngũ của chúng tôi không chỉ là những người làm việc, mà còn là những người đam mê công nghệ, luôn tìm tòi và sáng tạo. Chúng tôi tự hào có một đội ngũ chuyên gia giàu kinh nghiệm, sẵn sàng tư vấn và hỗ trợ bạn trong mọi vấn đề liên quan đến điện thoại và công nghệ.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-2 text-gray-700 fade-in">Cam Kết Chất Lượng</h3>
+                <p class="text-gray-600 mb-4 fade-in">
+                    Chất lượng sản phẩm và dịch vụ luôn là ưu tiên hàng đầu của chúng tôi. Chúng tôi chỉ cung cấp những sản phẩm chính hãng, có nguồn gốc rõ ràng, được kiểm tra kỹ lưỡng trước khi đến tay khách hàng.
+                </p>
+                <p class="text-gray-600 mb-4 fade-in">
+                    Ngoài ra, chúng tôi còn có chính sách bảo hành, đổi trả linh hoạt, giúp bạn yên tâm hơn khi mua sắm tại Cửa Hàng Điện Thoại.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-2 text-gray-700 fade-in">Liên Hệ Với Chúng Tôi</h3>
+                <p class="text-gray-600 fade-in">
+                    Nếu bạn có bất kỳ câu hỏi hoặc cần hỗ trợ, đừng ngần ngại liên hệ với chúng tôi. Chúng tôi luôn sẵn sàng lắng nghe và giải đáp mọi thắc mắc của bạn.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center p-4 mt-8">
+        <p>&copy; 2024 Cửa Hàng Điện Thoại. All rights reserved.</p>
+        <p>Bản quyền thuộc về Chiến Lê</p>
+    </footer>
+
+    <script>
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        fadeInElements.forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Cửa Hàng Điện Thoại</title>
+    <link href="./src/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .product-card img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .fade-in-image {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fade-in-image.loaded {
+            opacity: 1;
+        }
+
+        .flashing-text {
+            animation: flash 2s linear infinite;
+        }
+
+        @keyframes flash {
+            0% { color: #f44336; }
+            20% { color: #e91e63; }
+            40% { color: #9c27b0; }
+            60% { color: #3f51b5; }
+            80% { color: #2196f3; }
+            100% { color: #f44336; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold flashing-text">Cửa Hàng Điện Thoại</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-200">Trang Chủ</a></li>
+                    <li><a href="products.html" class="hover:text-gray-200">Sản Phẩm</a></li>
+                    <li><a href="about.html" class="hover:text-gray-200">Giới Thiệu</a></li>
+                    <li><a href="contact.html" class="hover:text-gray-200">Liên Hệ</a></li>
+                    <li><a href="admin.html" class="hover:text-gray-200">Quản Trị</a></li>
+                </ul>
+            </nav>
+            <div class="relative">
+                <a href="#" class="text-white hover:text-gray-200"><i class="fas fa-shopping-cart"></i></a>
+                <span id="cart-count" class="absolute top-[-8px] right-[-8px] bg-red-500 text-white rounded-full px-2 text-xs">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section class="products fade-in" id="phones">
+            <h2 class="text-3xl font-semibold mb-4 text-gray-800">Sản Phẩm Điện Thoại</h2>
+             <div class="relative mb-4">
+                <input type="text" id="phone-search-input" placeholder="Tìm kiếm điện thoại..." class="bg-white text-gray-700 rounded-full py-2 px-4 focus:outline-none focus:shadow-outline w-full">
+                <div id="phone-search-suggestions" class="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-md shadow-md hidden">
+                    <!-- Search suggestions will be added here -->
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <!-- Điện thoại 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08GtKCt0jKIJ-lxEwJ4K-99c4_K-jVf8FSA&usqp=CAU" alt="iPhone 15 Pro Max" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">iPhone 15 Pro Max</h4>
+                    <p class="text-gray-600">34.990.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity1" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity1" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6a5E-J-dl-x_Q4E-L-LhX_E4-Z_9vYd1z0g&usqp=CAU" alt="Samsung Galaxy S23 Ultra" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Samsung Galaxy S23 Ultra</h4>
+                    <p class="text-gray-600">27.990.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity2" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity2" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 3 -->
+                 <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy1v3-CdDlz2TrDTjJtzKjK-z1N9-bO83Y4g&usqp=CAU" alt="Oppo Find X5 Pro" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Oppo Find X5 Pro</h4>
+                    <p class="text-gray-600">19.990.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity3" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity3" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ90T0a-oEUcd-4Fn1KjE-V84dhByK-4-57gA&usqp=CAU" alt="Xiaomi 12T Pro" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Xiaomi 12T Pro</h4>
+                    <p class="text-gray-600">15.490.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity4" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity4" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 5 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv6_9rJ-WJ-wuE1qtK-J-dq4V8j9_XvQ-91w&usqp=CAU" alt="Vivo V27e" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Vivo V27e</h4>
+                    <p class="text-gray-600">8.990.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity5" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity5" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 6 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-2tgI_jXj1j0-9u9u0-wus4w-JQeG0w8hxw&usqp=CAU" alt="Realme C35" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Realme C35</h4>
+                    <p class="text-gray-600">4.290.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity6" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity6" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+                 <!-- Điện thoại 7 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08GtKCt0jKIJ-lxEwJ4K-99c4_K-jVf8FSA&usqp=CAU" alt="Samsung Galaxy Z Fold 5" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Samsung Galaxy Z Fold 5</h4>
+                    <p class="text-gray-600">40.990.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity7" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity7" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 8 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6a5E-J-dl-x_Q4E-L-LhX_E4-Z_9vYd1z0g&usqp=CAU" alt="Tecno Spark 20 Pro+" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Tecno Spark 20 Pro+</h4>
+                    <p class="text-gray-600">4.590.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity8" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity8" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 9 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy1v3-CdDlz2TrDTjJtzKjK-z1N9-bO83Y4g&usqp=CAU" alt="Itel S23+" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Itel S23+</h4>
+                    <p class="text-gray-600">3.790.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity9" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity9" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Điện thoại 10 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08GtKCt0jKIJ-lxEwJ4K-99c4_K-jVf8FSA&usqp=CAU" alt="Motorola Moto G54 5G" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Motorola Moto G54 5G</h4>
+                    <p class="text-gray-600">5.290.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantity10" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantity10" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section phụ kiện -->
+        <section class="accessories mt-8 fade-in" id="accessories">
+            <h2 class="text-3xl font-semibold mb-4 text-gray-800">Phụ Kiện Điện Thoại</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Phụ kiện 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08GtKCt0jKIJ-lxEwJ4K-99c4_K-jVf8FSA&usqp=CAU" alt="Sạc Dự Phòng" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Sạc Dự Phòng 10000mAh</h4>
+                    <p class="text-gray-600">250.000 VNĐ</p>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantityAcc1" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantityAcc1" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phụ kiện 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6a5E-J-dl-x_Q4E-L-LhX_E4-Z_9vYd1z0g&usqp=CAU" alt="Tai Nghe Bluetooth" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Tai Nghe Bluetooth True Wireless</h4>
+                    <p class="text-gray-600">450.000 VNĐ</p>
+                     <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantityAcc2" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantityAcc2" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phụ kiện 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy1v3-CdDlz2TrDTjJtzKjK-z1N9-bO83Y4g&usqp=CAU" alt="Ốp Lưng iPhone 14 Pro Max" class="w-full h-32 object-cover rounded-md mb-2 fade-in-image" onload="this.classList.add('loaded')">
+                    <h4 class="text-lg font-semibold text-gray-700">Ốp Lưng iPhone 14 Pro Max</h4>
+                    <p class="text-gray-600">150.000 VNĐ</p>
+                     <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <label for="quantityAcc3" class="text-gray-700 text-sm mr-2">Số lượng:</label>
+                            <input type="number" id="quantityAcc3" class="shadow appearance-none border rounded w-16 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào Giỏ
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Mua Ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center p-4 mt-8">
+        <p>&copy; 2024 Cửa Hàng Điện Thoại. All rights reserved.</p>
+        <p>Bản quyền thuộc về Chiến Lê</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartCountSpan = document.getElementById('cart-count');
+            let cartCount = 0;
+
+            const addToCartButtons = document.querySelectorAll('.product-card .bg-blue-500');
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    cartCount++;
+                    cartCountSpan.textContent = cartCount;
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+          const searchInput = document.getElementById('phone-search-input');
+          const searchSuggestions = document.getElementById('phone-search-suggestions');
+
+          const products = [
+              "iPhone 15 Pro Max",
+              "Samsung Galaxy S23 Ultra",
+              "Oppo Find X5 Pro",
+              "Xiaomi 12T Pro",
+              "Vivo V27e",
+              "Realme C35",
+              "Samsung Galaxy Z Fold 5",
+              "Tecno Spark 20 Pro+",
+              "Itel S23+",
+              "Motorola Moto G54 5G"
+          ];
+
+          searchInput.addEventListener('input', function() {
+              const searchTerm = searchInput.value.toLowerCase();
+              let suggestions = products.filter(product => product.toLowerCase().includes(searchTerm));
+
+              // Clear previous suggestions
+              searchSuggestions.innerHTML = '';
+
+              if (searchTerm && suggestions.length > 0) {
+                  searchSuggestions.style.display = 'block';
+                  suggestions.forEach(suggestion => {
+                      const a = document.createElement('a');
+                      a.href = '#'; // Replace '#' with the actual link to the product page
+                      a.textContent = suggestion;
+                      searchSuggestions.appendChild(a);
+                  });
+              } else {
+                  searchSuggestions.style.display = 'none';
+              }
+          });
+
+          // Hide suggestions when clicking outside the search box
+          document.addEventListener('click', function(event) {
+              if (!searchInput.contains(event.target) && !searchSuggestions.contains(event.target)) {
+                  searchSuggestions.style.display = 'none';
+              }
+          });
+      });
+    </script>
+</body>
+</html>
